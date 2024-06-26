@@ -13,7 +13,7 @@ export default  function Private() {
 
     onAuthStateChanged(auth ,(user) =>{
       if(!user) {
-        navigate('private/auth/login')
+        navigate('/private/auth/login')
          return
       }
       console.log(user)
