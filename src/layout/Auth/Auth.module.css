@@ -1,0 +1,10 @@
+.auth{
+      height: 100vh;
+      /* overflow: hidden; */
+      /* background-image: url('../../../public/auth/private.png'); */
+      background-size: auto;
+      background-position: center;
+      background-size: 10%;
+      background-color: rgba(0, 255, 255, 0.377);
+
+}

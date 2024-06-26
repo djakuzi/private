@@ -1,0 +1,29 @@
+:root {
+  --font: 'Open Sans', sans-serif;
+  --grey-custom: rgba(200, 200, 200, 0.246);
+}
+
+*{
+  box-sizing: border-box;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+}
+
+button{
+  padding: 0px;
+  background: none;
+  cursor: pointer;
+  border: none;
+}
+
+
