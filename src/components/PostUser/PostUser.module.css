@@ -1,0 +1,23 @@
+
+
+.postUser{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.hr{
+    border: 1px solid var(--grey-custom);
+}
+
+.text{
+    font-size: 15px;
+    padding: 10px;
+}

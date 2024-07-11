@@ -1,22 +1,33 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, updateProfile, UserInfo} from "firebase/auth"
-import { auth } from "../../firebase/firebase";
+import { setDoc, doc } from "firebase/firestore";
+import { auth, db} from "../../firebase/firebase";
+import { addUserFireStore } from "../../helper/ScriptHelp";
 import { laodStateLocalStorage } from "../helper/localStorage";
 
 
 
 export const PROFILE_DATA = "data-profile-user"
 
+
+//общий тип пользователя
 export interface DataUser{
     profile: UserInfo | null;
     errorRegister?: string;
     errorLogin?: string
 }
 
+// тип входящих данных для регистрации через пароль и емейл
+interface RegisterParams{
+    userName: string;
+    password: string;
+    passwordTest: string;
+    email: string;
+}
+
 const initialState:DataUser = {
     profile: laodStateLocalStorage<UserInfo>(PROFILE_DATA) ?? null
 }
-
 
 
 const userSlice = createSlice({
@@ -64,13 +75,10 @@ const userSlice = createSlice({
     }
 })
 
-interface RegisterParams{
-    userName: string;
-    password: string;
-    passwordTest: string;
-    email: string;
-}
 
+
+
+//регистрация firebase
 export const registerFirebase = createAsyncThunk('user/registerFirebase',  async(params:RegisterParams)=>{
 
     if(params.password != params.passwordTest){
@@ -98,16 +106,18 @@ export const registerFirebase = createAsyncThunk('user/registerFirebase',  async
                 uid: currentUser.uid
 
             }
+            addUserFireStore(data)
             
         })
         .catch( e => {
              throw new Error (e);
         })
-
+    
      return data
 
 })
 
+//login через google аккаунт
 export const loginGoogleFirebase = createAsyncThunk('user/loginGoogleFirebase', async()=>{
 
      const provider = new GoogleAuthProvider();
@@ -130,22 +140,27 @@ export const loginGoogleFirebase = createAsyncThunk('user/loginGoogleFirebase', 
             uid: user.uid
         }
 
+        addUserFireStore(data)
+
         }).catch((e) => {
             
             throw new Error(e)
  
         });
+    
+
 
     return data
 })
 
+
+// login with password and email
 interface LoginParams{
     password: string;
     email: string;
 }
 
 export const loginEmailPasswordFirebase = createAsyncThunk('user/loginEmailPasswordFirebase', async(params:LoginParams)=>{
-
 
      let data: UserInfo | null = null
 
@@ -164,12 +179,13 @@ export const loginEmailPasswordFirebase = createAsyncThunk('user/loginEmailPassw
 
             }
 
-
+            addUserFireStore(data)
         })
         .catch( e => {
         // "Вы что-то попутали"
             throw new Error(e)
         })
+
 
 
     return data

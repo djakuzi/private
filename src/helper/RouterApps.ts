@@ -4,7 +4,7 @@ import profileIMG from ".././../public/menu/profile.svg"
 
 export const LINK_MENU_ARR= [
     {
-        path: 'news',
+        path: 'people',
         name: "Новости",
         logo: newsIMG
     },
@@ -17,5 +17,13 @@ export const LINK_MENU_ARR= [
         path: 'profile',
         name: "Профиль",
         logo: profileIMG
+    }
+]
+
+export const LINK_PROFILE_ARR = [
+    {
+        path: 'myPAge',
+        name: 'Мой Профиль',
+        logo: 'NaN'
     }
 ]

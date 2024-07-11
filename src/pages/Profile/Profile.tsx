@@ -5,13 +5,11 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import arrrowIMG from '../../../public/menu/profile/arrow.svg'
 import cn from 'classnames';
+import { LINK_PROFILE_ARR } from '../../helper/RouterApps';
 
 export default  function Profile() {
 
   const {profile} = useSelector((s:RootState) => s.user)
-
-
-
 
   return (
     <div className={styles.profile}>
@@ -35,8 +33,9 @@ export default  function Profile() {
 
             <img src={arrrowIMG} alt="" />
            
-
         </NavLink>
+
+        {...LINK_PROFILE_ARR.map( (el) => <NavLink to={'/private/menu/profile/' + el.path} > {el.name}</NavLink>)}
 
 
       </div>

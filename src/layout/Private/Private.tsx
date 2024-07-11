@@ -1,6 +1,6 @@
 
 import styles from './Private.module.css';
-import { auth } from '../../firebase/firebase';
+import { auth, db} from '../../firebase/firebase';
 import { useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { Outlet, useNavigate } from 'react-router';
@@ -16,8 +16,8 @@ export default  function Private() {
         navigate('/private/auth/login')
          return
       }
-      console.log(user)
-      // navigate('private/menu/chat')
+
+      navigate('private/menu/chat')
     })
 
   },[])

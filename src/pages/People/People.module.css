@@ -1,0 +1,17 @@
+
+
+
+.people{
+    display: flex;
+}
+
+.wrapper{
+    max-width: 300px;
+    min-width: 300px;
+    background-color: aqua;
+    width: 100%;
+    border-right: 1.5px solid rgba(168, 168, 168, 0.394);
+    height: calc(100vh - 50px);
+    padding: 10px;
+    overflow: scroll;
+}

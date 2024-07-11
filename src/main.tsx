@@ -9,10 +9,11 @@ import Register from './pages/Register/Register'
 import Private from './layout/Private/Private'
 import Profile from './pages/Profile/Profile'
 import Menu from './pages/Menu/Menu'
-import News from './pages/News/News'
+import People from './pages/People/People'
 import { Provider } from 'react-redux'
 import { store } from './redux/store'
 import { ChangeProfile } from './pages/Profile/location/ChangeProfile/ChangeProfile'
+import { MyPage } from './pages/Profile/location/MyPage/MyPage'
 
 
 const Router = createBrowserRouter([
@@ -26,7 +27,13 @@ const Router = createBrowserRouter([
         children: [
           { 
             path: 'chat',
-            element: <Chat></Chat>
+            element: <Chat></Chat>,
+            children: [
+              {
+                path: '',
+                element: ''
+              }
+            ]
           },
           {
             path: 'profile',
@@ -35,12 +42,22 @@ const Router = createBrowserRouter([
               {
                 path: 'changeProfile',
                 element: <ChangeProfile></ChangeProfile>
+              },
+              {
+                path: 'myPAge',
+                element: <MyPage></MyPage>
               }
             ]
           },
           {
-            path: 'news',
-            element: <News></News>
+            path: 'People',
+            element: <People></People>,
+            children: [
+              {
+                path: '',
+                element: ''
+              }
+            ]
           }
     
       ]
