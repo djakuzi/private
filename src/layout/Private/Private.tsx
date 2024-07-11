@@ -14,10 +14,10 @@ export default  function Private() {
     onAuthStateChanged(auth ,(user) =>{
       if(!user) {
         navigate('/private/auth/login')
-         return
+        return
       }
 
-      navigate('private/menu/chat')
+      navigate('/private/menu/chat')
     })
 
   },[])
