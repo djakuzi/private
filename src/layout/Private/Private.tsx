@@ -1,6 +1,6 @@
 
 import styles from './Private.module.css';
-import { auth, db} from '../../firebase/firebase';
+import { auth} from '../../firebase/firebase';
 import { useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { Outlet, useNavigate } from 'react-router';

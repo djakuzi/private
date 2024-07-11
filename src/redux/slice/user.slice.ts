@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, updateProfile, UserInfo} from "firebase/auth"
-import { setDoc, doc } from "firebase/firestore";
-import { auth, db} from "../../firebase/firebase";
+import { auth} from "../../firebase/firebase";
 import { addUserFireStore } from "../../helper/ScriptHelp";
 import { laodStateLocalStorage } from "../helper/localStorage";
 
