@@ -36,7 +36,7 @@ export default function ProfilePage(props:ProfilePageProps){
 
         getPostUser()
 
-    }, [])
+    }, [props.uid])
 
     // функция для чтения постов пользователя
     const getPostUser = () =>  {
