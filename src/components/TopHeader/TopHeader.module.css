@@ -1,0 +1,36 @@
+.header {
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.back {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #1475A6;
+
+}
+
+.back img {
+    display: block;
+    width: 35px;
+    height: 35px;
+}
+
+
+.title {
+    font-size: 15px;
+}
+
+.save {
+    cursor: pointer;
+    color: #1475A6;
+    font-size: 14px;
+    font-weight: bold;
+}

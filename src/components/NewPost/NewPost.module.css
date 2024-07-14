@@ -1,0 +1,25 @@
+.post__add {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.post__add-create {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    border: none;
+}
+
+.post__add-submit {
+    cursor: pointer;
+    display: block;
+    width: 100px;
+    margin-left: auto;
+    padding: 10px 15px;
+    font-size: 12px;
+    border-radius: 10px;
+    background-color: white;
+    text-align: center;
+}

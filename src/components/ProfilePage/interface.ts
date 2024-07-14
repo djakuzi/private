@@ -1,3 +1,7 @@
+export interface TypeStatusLoadingPost{
+    loadingPosts:boolean
+    loadingPostsError: string
+}
 
 export interface TypePost {
     text: string;
@@ -12,15 +16,7 @@ export interface TypePostAuthor{
     photoURL: string;
 }
 
-export interface PostInfoUserProps {
+export interface TypePostInfoUser {
     author: TypePostAuthor
     posts: TypePost[];
-}
-
-export interface TypeStatusPost{
-    loadingPosts:boolean
-    addPost: boolean
-    loadingPostsError: string
-    addPostError: string
-    
 }

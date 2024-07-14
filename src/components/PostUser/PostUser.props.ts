@@ -4,6 +4,7 @@ export interface PostUserProps{
     displayName: string;
     photoURL: string;
     text: string;
+    img: string;
     date: string;
     time: string
 }

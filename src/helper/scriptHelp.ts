@@ -1,8 +1,9 @@
 // функция позволяющая увеличивать выосту textarea или другого блока для избежания появления полосы прокрутки
 
 import { UserInfo } from "firebase/auth"
-import { setDoc, doc } from "firebase/firestore"
+import { setDoc, doc, collection, getDocs, getDoc } from "firebase/firestore"
 import { db } from "../firebase/firebase"
+
 
 export const autoHeight =  (el:React.ChangeEvent<HTMLTextAreaElement>) =>{
 
@@ -40,4 +41,23 @@ export const addUserFireStore = async(data: UserInfo) => {
 
     setDoc(doc(db, "user", data.uid+ ""), userFirebase); // обычная информация о пользователе
   
+}
+
+
+//загрузка всех людей или друзей
+
+export const loadingPeoples = async (uid?:string) =>{
+
+    if(uid){
+        const docSnap = await getDoc(doc(db, "user", uid + ""));
+        return docSnap.data()
+    }
+
+    const querySnapshot = await getDocs(collection(db, "user"));
+    let lolka: any = []
+    querySnapshot.forEach((doc) => {
+        lolka.push(doc.data())
+    });
+
+    return lolka
 }

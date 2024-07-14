@@ -14,6 +14,7 @@ import { Provider } from 'react-redux'
 import { store } from './redux/store'
 import { ChangeProfile } from './pages/Profile/location/ChangeProfile/ChangeProfile'
 import { MyPage } from './pages/Profile/location/MyPage/MyPage'
+import PeopleProfilePage from './pages/People/location/PeopleProfilePage/PeopleProfilePage'
 
 
 const Router = createBrowserRouter([
@@ -50,12 +51,12 @@ const Router = createBrowserRouter([
             ]
           },
           {
-            path: 'People',
+            path: 'people',
             element: <People></People>,
             children: [
               {
-                path: '',
-                element: ''
+                path: 'pageProfile/:uid',
+                element: <PeopleProfilePage />
               }
             ]
           }

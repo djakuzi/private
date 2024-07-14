@@ -1,5 +1,4 @@
 import styles from './ChangeProfile.module.css';
-import backIMG from '../../../../../public/menu/profile/back.svg'
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../../redux/store';
 import { autoHeight } from '../../../../helper/ScriptHelp';
@@ -7,6 +6,7 @@ import { userActions } from '../../../../redux/slice/user.slice';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TypeChangeProfile } from './Interface';
+import TopHeader from '../../../../components/TopHeader/TopHeader';
 
 
 export function ChangeProfile(){
@@ -30,24 +30,17 @@ export function ChangeProfile(){
         navigate('/private/auth/login')
     }
 
-    // const test = (a:string,b:string) : boolean => {
-    //     return a == b
-    // }
+    const test = (a:string,b:string) : boolean => {
+        console.log(a, b)
+        return a == b
+    }
+
+    
 
     return(
         <div className={styles.changeProfile}>
 
-            <div className={styles.header}>
-
-                <div onClick={ () => navigate(-1)} className={styles.back}>
-                    <img src={backIMG} alt="" />
-                    <div>назад</div>
-                </div>
-
-                <div className={styles.title}>Изменить профиль</div>
-
-                <div className={styles.save}>Готово</div>
-            </div>
+            <TopHeader title={'Изменить профиль'} func={()=>test('1','2')}></TopHeader>
             
             <form className={styles.form}>
 

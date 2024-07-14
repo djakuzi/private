@@ -1,0 +1,39 @@
+.info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.383);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.avatar {
+    display: block;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+}
+
+.avatarName {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    background-color: azure;
+}
+
+.info__wrapper{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.line {
+    width: 98%;
+    margin: 0 auto;
+    border: 1px solid var(--grey-custom);
+}

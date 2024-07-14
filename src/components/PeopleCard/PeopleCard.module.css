@@ -1,0 +1,46 @@
+
+
+.peopleCard{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* justify-content: space-between; */
+    background-color: rgba(0, 255, 255, 0.172);
+    padding: 10px;
+    border-radius: 10px;
+    border-bottom: 3px solid black;
+    transition: transform .3s ease;
+}
+
+.peopleCard:hover{
+    transform: scale(1.02);
+}
+
+.avatar {
+    display: block;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.avatarName {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: azure;
+}
+
+.info__name{
+    font-size: 14px;
+}
+
+.info__network {
+    font-size: 14px;
+    color: rgb(205, 205, 205);
+}
