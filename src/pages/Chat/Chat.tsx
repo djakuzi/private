@@ -6,9 +6,10 @@ export default  function Chat() {
 
 
   return (
-    <div>
+    <div className={styles["chat"]}>
 
-      <div className={styles.contentBar}>
+      <div className={styles.navbar}>
+        <div className={styles.title}>Чаты</div>
       </div>
 
       <div className={styles.content}>

@@ -27,7 +27,7 @@ export default  function People() {
   return (
     <div className={styles.people}>
 
-      <div className={styles.container}>
+      <div className={styles['navbar']}>
         <div className={styles.title}>Люди</div>
         <PeopleList people={people} classNameList={styles['wrapper']}></PeopleList>
       </div>
