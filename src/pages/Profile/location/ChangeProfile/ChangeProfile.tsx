@@ -1,12 +1,14 @@
 import styles from './ChangeProfile.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../../redux/store';
-import { autoHeight } from '../../../../helper/ScriptHelp';
+import {  getUserData, updateUserFireStore } from '../../../../helper/ScriptFirebase';
+import { autoHeight} from '../../../../helper/ScriptHelp';
 import { userActions } from '../../../../redux/slice/user.slice';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TypeChangeProfile } from './Interface';
 import TopHeader from '../../../../components/TopHeader/TopHeader';
+import AvatarUser from '../../../../components/AvatarUser/AvatarUser';
 
 
 export function ChangeProfile(){
@@ -25,7 +27,10 @@ export function ChangeProfile(){
     const [userOptions, setUserOptions] = useState<TypeChangeProfile>(initialParametrsUser)
     const dispatch = useDispatch<AppDispatch>()
     const navigate = useNavigate()
+
     const exit = () =>{
+        const userData = getUserData()
+        updateUserFireStore(userData, false)
         dispatch(userActions.logOut())
         navigate('/private/auth/login')
     }
@@ -45,8 +50,7 @@ export function ChangeProfile(){
             <form className={styles.form}>
 
                 <div className={styles.info}>
-                    {profile?.photoURL && <img className={styles.avatar} src={profile?.photoURL + ''} alt="" />}
-                    {!profile?.photoURL && <div  className={styles.avatarName}><div>{profile?.displayName?.slice(0,1)}</div></div>}
+                    <AvatarUser displayName={profile?.displayName as string} photoUrl={profile?.photoURL as string} classAvatar={styles['avatar']} classAvatarName={styles['avatarName']}/>
                     <div className={styles.box}>
                         <input onChange={ (e) => setUserOptions( {...userOptions, displayName: e.target?.value})} className={styles.customInput} name='nameUser' value={userOptions.displayName + ''}  type="text" />
                         <hr className={styles.line}/>
@@ -74,6 +78,7 @@ export function ChangeProfile(){
                 <div className={styles.exit} onClick={exit}>Выйти</div>
 
             </form>
+
         </div>
     )
 }

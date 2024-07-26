@@ -26,10 +26,10 @@ export default function NewPost(props: NewPostProps){
             year: 'numeric',
             month: 'long',
             day: 'numeric',
-            timeZone: 'UTC',
+            timeZone: 'Europe/Moscow',
         };
         const optionsTime: Intl.DateTimeFormatOptions = {
-            timeZone: 'UTC',
+            timeZone: 'Europe/Moscow',
             hour: 'numeric',
             minute: 'numeric',
             second: undefined
@@ -41,8 +41,8 @@ export default function NewPost(props: NewPostProps){
         }
         const addPost = {
             text: textNewPost,
-            date: date.toLocaleString("ru", optionsDate),
-            time: date.toLocaleString("ru", optionsTime),
+            date: date.toLocaleString("ru-RU", optionsDate),
+            time: date.toLocaleString("ru-RU", optionsTime),
         }
         const firstPost = {
             author: author,

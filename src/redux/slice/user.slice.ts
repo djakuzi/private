@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, updateProfile, UserInfo} from "firebase/auth"
 import { auth} from "../../firebase/firebase";
-import { addUserFireStore } from "../../helper/ScriptHelp";
+import { updateUserFireStore } from "../../helper/ScriptFirebase";
 import { laodStateLocalStorage } from "../helper/localStorage";
 
 
@@ -105,7 +105,7 @@ export const registerFirebase = createAsyncThunk('user/registerFirebase',  async
                 uid: currentUser.uid
 
             }
-            addUserFireStore(data)
+            updateUserFireStore(data, true)
             
         })
         .catch( e => {
@@ -126,8 +126,6 @@ export const loginGoogleFirebase = createAsyncThunk('user/loginGoogleFirebase', 
     await signInWithPopup(auth, provider)
         .then((res) => {
     
-        //   const credential = GoogleAuthProvider.credentialFromResult(res);
-        //   const token = credential?.accessToken;
           const user = res.user;
           
           data = {
@@ -139,7 +137,7 @@ export const loginGoogleFirebase = createAsyncThunk('user/loginGoogleFirebase', 
             uid: user.uid
         }
 
-        addUserFireStore(data)
+        updateUserFireStore(data, true)
 
         }).catch((e) => {
             
@@ -178,7 +176,7 @@ export const loginEmailPasswordFirebase = createAsyncThunk('user/loginEmailPassw
 
             }
 
-            addUserFireStore(data)
+            updateUserFireStore(data, true)
         })
         .catch( e => {
         // "Вы что-то попутали"

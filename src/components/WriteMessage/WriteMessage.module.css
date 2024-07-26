@@ -1,0 +1,16 @@
+
+
+.link{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--base-telegramColor-app);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: all .3s ease;
+}
+
+.link:active{
+    transform: scale(0.99);
+}

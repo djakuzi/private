@@ -8,9 +8,10 @@ import PostList from '../PostList/PostList';
 import TopHeader from '../TopHeader/TopHeader';
 import { TypePostInfoUser, TypeStatusLoadingPost } from './interface';
 import { ProfilePageProps } from './ProfilePage.props';
-import InfoUserPage from '../InfoUserPage/InfoUserPage';
+import InfoUserPage from '../InfoUserProfile/InfoUserProfile';
 import { TypePeople } from '../../helper/interface';
-import { loadingPeoples } from '../../helper/ScriptHelp';
+import { loadingPeoples } from '../../helper/ScriptFirebase';
+import WriteMessage from '../WriteMessage/WriteMessage';
 
 const INITIAL_STATUS_POSTS = {
     loadingPosts: false,
@@ -29,7 +30,6 @@ export default function ProfilePage(props:ProfilePageProps){
     useEffect( () => {
         loadingPeoples(props.uid)
         .then( res => setDataUser(res))
-        console.log(dataUser)
     }, [props.uid])
 
     useEffect(() => {
@@ -54,7 +54,7 @@ export default function ProfilePage(props:ProfilePageProps){
 
     } 
 
-    // если это страница авторизированного пользователя, то отображается его страница с возможностями ее изменениями: добавление постоав и так далее
+    // если это страница авторизированного пользователя, то отображается его страница с возможностями ее изменениями: добавление постов и так далее
 
     if(validAuthUser){
         return (
@@ -67,6 +67,7 @@ export default function ProfilePage(props:ProfilePageProps){
                     {statusPosts.loadingPosts && <div>Загрузка постов</div>}
                     {statusPosts.loadingPostsError && <div>Произошла ошибка: {statusPosts.loadingPostsError}</div>}
                     {dataPost?.posts && <PostList dataPost={dataPost}/>}
+                    {!dataPost?.posts && <div> Напиши свой первый пост</div>}
                 </div>
             </div>
         )
@@ -81,9 +82,11 @@ export default function ProfilePage(props:ProfilePageProps){
 
                 <div className={styles['user']}>
                     {dataUser && <InfoUserPage {...dataUser}/>}
+                    <WriteMessage uid={props.uid} displayName={dataUser?.displayName as string} photoUrl={dataUser?.photoURL as string} />
                     {statusPosts.loadingPosts && <div>Загрузка постов</div>}
                     {statusPosts.loadingPostsError && <div>Произошла ошибка: {statusPosts.loadingPostsError}</div>}
                     {dataPost?.posts && <PostList dataPost={dataPost}/>}
+                    {!dataPost?.posts && <div> нет постов</div>}
                 </div>
 
             </div>

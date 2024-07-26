@@ -1,0 +1,75 @@
+
+
+.link {
+    position: relative;
+    font-size: 14px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.link:not(:first-of-type){
+    color: black;
+    padding: 5px;
+}
+
+.img{
+    left: calc(100% - 30px);
+    position: absolute;
+    width: 30px;
+    height: 30px;
+}
+
+.avatar {
+    display: block;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+.avatarName {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: azure;
+}
+
+.container {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.container div{
+    max-width: 160px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.active {
+    background-color: var(--base-color-app);
+}
+
+.active .container{
+    color: var(--active-card-color)
+}
+
+.active .img{ /*чтобы убиралась стрлека на первом линке, если он активен*/
+    display: none;
+}
+
+.icon{
+    width: 35px;
+    height: 35px;
+}
+

@@ -10,6 +10,7 @@
     font-size: 14px;
     outline: none;
     border: none;
+    resize: none;
 }
 
 .post__add-submit {

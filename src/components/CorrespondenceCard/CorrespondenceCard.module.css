@@ -1,0 +1,103 @@
+
+.correspondenceCard{
+    position: relative;
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: var(--base-color-app);
+    transition: all .3s ease;
+    border: 1px solid black;
+}
+
+.correspondenceCard:hover{
+    transform: scale(0.98);
+}
+
+.read{
+    background-color: aqua;
+}
+
+.avatar {
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+}
+
+.avatarName {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: azure;
+}
+
+.statusNetwork {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--online-status);
+    top: calc(100% - 10px);
+    left: calc(100% - 20px);
+    border-radius: 5px;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    /* gap: 5px; */
+
+}
+
+.name{
+    max-width: 170px;
+    width: 100%;
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    font-size: 15px;
+}
+
+.lastMessage{
+    max-width: 175px;
+    width: 100%;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: var(--active-card-color)
+}
+
+.date{
+    position: absolute;
+    left: calc(100% - 92px);
+    width: 90px;
+    text-align: end;
+    color: var(--active-card-color);
+    font-size: 11px;
+    align-self: flex-end;
+    /* background-color: antiquewhite; */
+}
+
+.read{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    left: calc(100% - 30px);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 15px;
+    font-weight: 100;
+    background-color: var(--base-telegramColor-app);
+}

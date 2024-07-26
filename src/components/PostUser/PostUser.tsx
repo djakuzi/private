@@ -7,8 +7,6 @@ import { PostUserProps } from './PostUser.props';
 export default function PostUser(props:PostUserProps){
 
 
-
-
     return (
 
         <div className={styles['postUser']}>

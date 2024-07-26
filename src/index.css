@@ -1,6 +1,11 @@
 :root {
   --font: 'Open Sans', sans-serif;
   --grey-custom: rgba(200, 200, 200, 0.246);
+  --grey-text: rgb(135, 135, 135);
+  --online-status: rgb(50, 188, 4); 
+  --base-color-app: rgba(0, 255, 255, 0.223);
+  --base-telegramColor-app: rgba(6, 138, 209, 0.878);
+  --active-card-color: rgb(86, 86, 86);
 }
 
 *{
@@ -17,6 +22,7 @@ body{
   overflow: hidden;
   padding: 0px;
   margin: 0px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 button{

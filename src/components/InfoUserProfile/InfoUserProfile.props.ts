@@ -1,5 +1,5 @@
 import { TypePeople } from "../../helper/interface";
 
-export interface InfoUserPageProps extends TypePeople {
+export interface InfoUserProfileProps extends TypePeople {
     
 }

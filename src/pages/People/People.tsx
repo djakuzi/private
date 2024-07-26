@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import {  Outlet } from 'react-router-dom';
 import PeopleList from '../../components/PeopleList/PeopleList';
 import { TypePeople } from '../../helper/interface';
-import { loadingPeoples } from '../../helper/ScriptHelp';
+import { loadingPeoples } from '../../helper/ScriptFirebase';
 import styles from './People.module.css';
 
 

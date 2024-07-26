@@ -6,11 +6,12 @@
     align-items: center;
     gap: 15px;
     /* justify-content: space-between; */
-    background-color: rgba(0, 255, 255, 0.172);
+    background-color: var(--base-color-app);
     padding: 10px;
     border-radius: 10px;
     border-bottom: 3px solid black;
     transition: transform .3s ease;
+    
 }
 
 .peopleCard:hover{
@@ -36,11 +37,30 @@
     background-color: azure;
 }
 
-.info__name{
+.statusNetwork {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--online-status);
+    top: calc( 100% - 10px);
+    left: calc(100% - 20px);
+    border-radius: 5px;
+}
+
+
+.info{
     font-size: 14px;
 }
 
+.info__name{
+    max-width: 180px;
+    width: 100%;
+    font-size: 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .info__network {
-    font-size: 14px;
     color: rgb(205, 205, 205);
 }

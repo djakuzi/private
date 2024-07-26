@@ -1,0 +1,78 @@
+
+
+.message{
+    display: flex;
+    gap: 10px;
+    align-self: flex-start;
+    margin-left: 10px;
+}
+
+.valid {
+    flex-direction: row-reverse;
+    align-self: flex-end;
+    margin-right: 10px;
+}
+
+.avatar {
+    display: block;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.avatarName {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: azure;
+}
+
+
+.data{
+    /* настройка чтобы текст переносился если в нем есть \n */
+    padding: 7px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.name{
+    color: var(--base-telegramColor-app);
+    font-size: 14px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+.text{
+    max-width: 600px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: black;
+    font-size: 16px;
+}
+
+.time{
+    width: 40px;
+    color: var(--grey-text);
+    margin-left: auto;
+}
+
+.data__container{
+    display: flex;
+    align-items: center;
+}
+
+.loading{
+    display: block;
+    width: 10px;
+    height: 10px;
+}
+
+.error{
+    font-size: 16px;
+    color: red;
+}
+

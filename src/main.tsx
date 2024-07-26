@@ -15,6 +15,8 @@ import { store } from './redux/store'
 import { ChangeProfile } from './pages/Profile/location/ChangeProfile/ChangeProfile'
 import { MyPage } from './pages/Profile/location/MyPage/MyPage'
 import PeopleProfilePage from './pages/People/location/PeopleProfilePage/PeopleProfilePage'
+import ChatCorrespondencePage from './pages/Chat/location/ChatCorrespondencePage/ChatCorrespondencePage'
+import NotificationUser from './pages/Profile/location/NotificationUser/NotificationUser'
 
 
 const Router = createBrowserRouter([
@@ -31,8 +33,8 @@ const Router = createBrowserRouter([
             element: <Chat></Chat>,
             children: [
               {
-                path: '',
-                element: ''
+                path: 'сorrespondence/:uidCompound',
+                element: <ChatCorrespondencePage />
               }
             ]
           },
@@ -47,6 +49,10 @@ const Router = createBrowserRouter([
               {
                 path: 'myPAge',
                 element: <MyPage></MyPage>
+              },
+              {
+                path: 'notification',
+                element: <NotificationUser />
               }
             ]
           },

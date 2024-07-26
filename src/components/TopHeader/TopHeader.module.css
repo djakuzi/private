@@ -13,7 +13,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    color: #1475A6;
+    color: var(--base-telegramColor-app);
 
 }
 
@@ -30,7 +30,7 @@
 
 .save {
     cursor: pointer;
-    color: #1475A6;
+    color: var(--base-telegramColor-app);
     font-size: 14px;
     font-weight: bold;
 }

@@ -1,0 +1,99 @@
+
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+
+}
+
+.info__container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.383);
+}
+
+.more {
+    display: inline;
+    max-width: 130px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    /* background-color: yellowgreen; */
+}
+
+.more::after{
+    content: '↲';
+}
+
+.more:hover{
+
+}
+
+.info__details{
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.383);
+}
+
+.open {
+    display: block;
+}
+
+.avatar {
+    display: block;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+}
+
+.avatarName {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    background-color: azure;
+}
+
+
+
+.name{
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.line {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid var(--grey-custom);
+}
+
+.online{ 
+    font-size: 15px;
+    color: var(--online-status);
+}
+
+.offline{
+    font-size: 15px;
+}
+
+
+
+.email{
+
+}
+
+.number{
+    
+}
