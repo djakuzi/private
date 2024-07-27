@@ -11,9 +11,12 @@ import TopHeader from '../../../../components/TopHeader/TopHeader';
 import AvatarUser from '../../../../components/AvatarUser/AvatarUser';
 
 
+
 export function ChangeProfile(){
 
     const {profile} = useSelector( (s:RootState)=> s.user )
+
+
 
     const initialParametrsUser: TypeChangeProfile = {
         password: '',

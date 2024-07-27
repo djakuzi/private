@@ -18,9 +18,7 @@ export default function CorrespondenceList(){
     const [loading, setLoading] = useState<boolean>(true)
     // const [uidUser, setUidUser] = useState<string>('')
     
-
     const {uid} = useSelector( (s:RootState) => s.user.profile as UserInfo)
-
 
     useEffect( ()=> {
         setLoading(true)

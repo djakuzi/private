@@ -34,7 +34,7 @@ export default function CorrespondenceCard(props:CorrespondenceCardProps){
     }
 
     return(
-        <Link onClick={()=> handleLink()} to={'/private/menu/chat/сorrespondence/:' + props.correspondenceId} className={styles['correspondenceCard']}>
+        <Link onClick={()=> handleLink()} to={'/menu/chat/сorrespondence/:' + props.correspondenceId} className={styles['correspondenceCard']}>
                 {dataUser && <AvatarUser photoUrl={dataUser.photoURL} displayName={dataUser.displayName} classAvatar={styles['avatar']} classAvatarName={styles['avatarName']} statusNetwork={dataUser.statusNetwork} classStatusNetwork={styles['statusNetwork']}/>}
                 <div className={styles['info']}>
                     <div className={styles['name']}>{dataUser?.displayName}</div>

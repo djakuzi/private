@@ -22,7 +22,7 @@ import PeopleCorrespondencePage from './pages/People/location/PeopleCorresponden
 
 const routes = [
     {
-    path: '/private',
+    path: '/',
     element: <Private></Private>,
     children: [
       {
@@ -79,7 +79,7 @@ const routes = [
 
   },
   {
-  path: '/private/auth',
+  path: '/auth',
   element: <Auth></Auth>,
   children: [
     { 

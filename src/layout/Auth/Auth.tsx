@@ -12,7 +12,13 @@ export default  function Auth() {
   const navigate = useNavigate()
   const {profile} = useSelector( (s:RootState)=> s.user)
   useEffect(()=> {
-    if (profile != null && auth.currentUser?.uid) navigate('/private/menu/chat')
+
+    if (profile != null && auth.currentUser != null) {
+      navigate('/menu')
+    } else {
+      navigate('/auth/login')
+    }
+
   }, [profile])
 
 

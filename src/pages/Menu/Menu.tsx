@@ -14,7 +14,7 @@ export default  function Menu() {
         {
           LINK_MENU_ARR.map( (el,i) => {
 
-          return <NavLink key={i}  to={'/private/menu/' + el.path} className={ ({isActive}) => cn(styles.link,{
+          return <NavLink key={i}  to={'/menu/' + el.path} className={ ({isActive}) => cn(styles.link,{
               [styles.active]: isActive,
           })}>
             

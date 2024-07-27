@@ -63,7 +63,7 @@ export default  function Login() {
 
         
         <div>Нет аккаунта?</div>
-        <Link className={styles.link} to='/private/auth/register'>Зарегестрируйся 😉</Link>
+        <Link className={styles.link} to='/auth/register'>Зарегестрируйся 😉</Link>
 
       <button onClick={(e) => authGoogle(e)} className={styles.google}>ВОЙТИ С ПОМОЩЬЮ GOOGLE</button>
     </div>

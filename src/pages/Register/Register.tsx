@@ -1,7 +1,7 @@
 
-import { FormEvent, useEffect } from 'react';
+import { FormEvent} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { registerFirebase } from '../../redux/slice/user.slice';
 import { AppDispatch, RootState } from '../../redux/store';
 import styles from './Register.module.css';
@@ -24,14 +24,10 @@ interface FormValueRegister{
 }
 
 export default  function Register() {
-  const navigate = useNavigate()
 
   const dispatch = useDispatch<AppDispatch>()
-  const {errorRegister, profile} = useSelector( (s:RootState)=> s.user)
-  
-  useEffect(()=> {
-    if (profile != null) navigate('/private/menu/chat')
-  }, [profile])
+  const {errorRegister} = useSelector( (s:RootState)=> s.user)
+
   
   const registerSubmit = async(e:FormEvent) =>{
     e.preventDefault()
@@ -69,7 +65,7 @@ export default  function Register() {
         </form>
 
          <div>Есть аккаунт?</div>
-        <Link className={styles.link} to='/private/auth/login'>Войти</Link>
+        <Link className={styles.link} to='/auth/login'>Войти</Link>
     </div>
   )
 }

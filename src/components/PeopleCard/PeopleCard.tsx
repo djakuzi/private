@@ -7,7 +7,7 @@ import AvatarUser from "../AvatarUser/AvatarUser";
 export  default function PeopleCard (props:PeopleCardProps) {
 
     return (
-        <Link to={'/private/menu/people/pageProfile/:' + props.uid} className={styles.peopleCard}>
+        <Link to={'/menu/people/pageProfile/:' + props.uid} className={styles.peopleCard}>
             <AvatarUser photoUrl={props.photoURL} displayName={props.displayName} classAvatar={styles['avatar']} classAvatarName={styles['avatarName']} statusNetwork={props.statusNetwork} classStatusNetwork={styles['statusNetwork']}/>  
             <div className={styles['info']}>
                 <div className={styles['info__name']}>{props.displayName}</div>

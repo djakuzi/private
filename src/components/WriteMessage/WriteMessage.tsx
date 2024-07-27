@@ -25,7 +25,7 @@ export default function WriteMessage(props:WriteMessageProps){
     }, [])
 
     return(
-        <Link onClick={()=> dispatch(correspondenceAction.updateCorrespondence(correspondenceData))} to={'/private/menu/' + props.path +'/сorrespondence/:' + uidCompound} className={styles['link']}>
+        <Link onClick={()=> dispatch(correspondenceAction.updateCorrespondence(correspondenceData))} to={'/menu/' + props.path +'/сorrespondence/:' + uidCompound} className={styles['link']}>
             Написать сообщение
         </Link >
     )

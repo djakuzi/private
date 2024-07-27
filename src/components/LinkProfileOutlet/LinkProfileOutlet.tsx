@@ -16,7 +16,7 @@ export default function LinkProfileOutlet(props:LinkProfileOutletProps){
         const {profile} = useSelector((s:RootState) => s.user)
 
         return (
-            <NavLink  to={'/private/menu/profile/changeProfile'} className={ ({isActive}) => cn(styles['link'],{
+            <NavLink  to={'/menu/profile/changeProfile'} className={ ({isActive}) => cn(styles['link'],{
                 [styles.active]: isActive,
                 })}>
                     
@@ -35,7 +35,7 @@ export default function LinkProfileOutlet(props:LinkProfileOutletProps){
     }
 
     return (
-        <NavLink to={'/private/menu/profile/' + props.path} className={ ({isActive}) => cn(styles['link'],{
+        <NavLink to={'/menu/profile/' + props.path} className={ ({isActive}) => cn(styles['link'],{
                 [styles.active]: isActive,
                 })}>
                 <img className={styles['icon']} src={props.img} alt="" />

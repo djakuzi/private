@@ -5,35 +5,38 @@ import { useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { Outlet, useNavigate } from 'react-router';
 import { sendStatusVisibilityStateUser} from '../../helper/ScriptFirebase';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 
 export default  function Private() {
 
   const navigate = useNavigate()
-  // let path = window.location.pathname
+   const {profile} = useSelector( (s:RootState)=> s.user)
+  let path = window.location.pathname
 
   useEffect( ()=> {
     
     onAuthStateChanged(auth ,(user) =>{
 
       if(!user) {
-        navigate('/private/auth/login')
-        return
+        navigate('/auth/login')
       }
 
       if(user){
         document.addEventListener('visibilitychange', sendStatusVisibilityStateUser)
-        navigate('/private/menu/chat')
-        // if(path == '/private' || path == '/private/menu' || path ==''){
-        //   navigate('/private/menu/chat')
-        // } else if(path)(
-        //   navigate(path)
-        // )
+
+        console.log(path)
+        if(path == '/private' || path == '/private/' || path == '/private/menu' || path == ''){
+          navigate('/menu/profile')
+        } else if(path){
+          // navigate(path)
+        }
         
       }
      
     })
 
-  },[])
+  },[profile])
   
   return (
     <div  className={styles.private}>
