@@ -11,14 +11,17 @@ import { RootState } from '../../redux/store';
 export default  function Private() {
 
   const navigate = useNavigate()
-   const {profile} = useSelector( (s:RootState)=> s.user)
+  const {profile} = useSelector( (s:RootState)=> s.user)
   let path = window.location.pathname
 
   useEffect( ()=> {
+      if(!profile) {
+        navigate('/auth/login')
+      }
     
     onAuthStateChanged(auth ,(user) =>{
 
-      if(!user) {
+      if(!user || !profile) {
         navigate('/auth/login')
       }
 

@@ -8,8 +8,6 @@ import CorrespondenceCard from '../CorrespondenceCard/CorrespondenceCard'
 import SkeletonBlock from './SkeletonBlock/SkeletonBlock'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
-import { UserInfo } from 'firebase/auth'
-
 
 export default function CorrespondenceList(){
 
@@ -17,10 +15,13 @@ export default function CorrespondenceList(){
     // const [dataUser, setDataUser] = useState<TypePeople[]>() данные пользователей НЕ ИСПОЛЬЗУЕТСЯ
     const [loading, setLoading] = useState<boolean>(true)
     // const [uidUser, setUidUser] = useState<string>('')
-    
-    const {uid} = useSelector( (s:RootState) => s.user.profile as UserInfo)
+
+
+    const uid = useSelector( (s:RootState) => s.user.profile?.uid)
 
     useEffect( ()=> {
+
+        if(!uid) return
         setLoading(true)
         const onsub =  onSnapshot(doc(db, "correspondenceCard", uid), (doc) => {
             setDataCorrespondence(doc.data() as TypeCorrespondenceList)
