@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://djakuzi.github.io/private/",
+  "homepage": "https://djakuzi.github.io/private",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
