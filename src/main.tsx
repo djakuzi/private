@@ -20,8 +20,8 @@ import NotificationUser from './pages/Profile/location/NotificationUser/Notifica
 import PeopleCorrespondencePage from './pages/People/location/PeopleCorrespondencePage/PeopleCorrespondencePage'
 
 
-const Router = createBrowserRouter([
-  {
+const routes = [
+    {
     path: '/private',
     element: <Private></Private>,
     children: [
@@ -95,7 +95,11 @@ const Router = createBrowserRouter([
 },
 
 ]
-)
+
+
+const Router = createBrowserRouter(routes, {
+  basename: '/private',
+})
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

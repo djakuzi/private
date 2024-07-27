@@ -9,7 +9,7 @@ import { sendStatusVisibilityStateUser} from '../../helper/ScriptFirebase';
 export default  function Private() {
 
   const navigate = useNavigate()
-  let path = window.location.pathname
+  // let path = window.location.pathname
 
   useEffect( ()=> {
     
@@ -22,12 +22,12 @@ export default  function Private() {
 
       if(user){
         document.addEventListener('visibilitychange', sendStatusVisibilityStateUser)
-
-        if(path == '/private' || path == '/private/menu' || path ==''){
-          navigate('/private/menu/chat')
-        } else if(path)(
-          navigate(path)
-        )
+        navigate('/private/menu/chat')
+        // if(path == '/private' || path == '/private/menu' || path ==''){
+        //   navigate('/private/menu/chat')
+        // } else if(path)(
+        //   navigate(path)
+        // )
         
       }
      
