@@ -19,13 +19,13 @@ export default function WriteMessage(props:WriteMessageProps){
         displayNameCompanion: props.displayName,
         photoUrlCompanion: props.photoUrl,
     }
-    
+
     useEffect( () => {
         setUidCompound(getUidCompound(auth.currentUser?.uid as string, props.uid))
     }, [])
 
     return(
-        <Link onClick={()=> dispatch(correspondenceAction.updateCorrespondence(correspondenceData))} to={'/private/menu/chat/сorrespondence/:' + uidCompound} className={styles['link']}>
+        <Link onClick={()=> dispatch(correspondenceAction.updateCorrespondence(correspondenceData))} to={'/private/menu/' + props.path +'/сorrespondence/:' + uidCompound} className={styles['link']}>
             Написать сообщение
         </Link >
     )

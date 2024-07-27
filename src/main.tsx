@@ -17,6 +17,7 @@ import { MyPage } from './pages/Profile/location/MyPage/MyPage'
 import PeopleProfilePage from './pages/People/location/PeopleProfilePage/PeopleProfilePage'
 import ChatCorrespondencePage from './pages/Chat/location/ChatCorrespondencePage/ChatCorrespondencePage'
 import NotificationUser from './pages/Profile/location/NotificationUser/NotificationUser'
+import PeopleCorrespondencePage from './pages/People/location/PeopleCorrespondencePage/PeopleCorrespondencePage'
 
 
 const Router = createBrowserRouter([
@@ -63,6 +64,10 @@ const Router = createBrowserRouter([
               {
                 path: 'pageProfile/:uid',
                 element: <PeopleProfilePage />
+              },
+              {
+                path: 'сorrespondence/:uidCompound',
+                element: <PeopleCorrespondencePage />
               }
             ]
           }

@@ -1,15 +1,15 @@
 
 
-.link{
-    display: block;
+.friend{
+    cursor: pointer;
     width: 100%;
     padding: 10px;
     text-align: center;
-    background-color: var(--base-telegramColor-app);
+    background-color: rgb(253, 112, 112);
     border-radius: 10px;
     transition: all .3s ease;
 }
 
-.link:active{
+.friend:active {
     transform: scale(0.99);
 }

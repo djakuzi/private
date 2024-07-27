@@ -29,4 +29,7 @@ export const getUidCompound = (uidAuth: string, uidPeople: string) : string => {
     return uidCompound
 }
 
+
+
+
     

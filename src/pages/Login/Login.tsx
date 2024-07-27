@@ -1,10 +1,10 @@
 import styles from './Login.module.css';
-import { useNavigate } from 'react-router';
-import { FormEvent, useEffect} from 'react';
+import { FormEvent} from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../redux/store';
 import { loginEmailPasswordFirebase, loginGoogleFirebase } from '../../redux/slice/user.slice';
+
 
 interface FormValueLogin{
     email: {
@@ -18,14 +18,10 @@ interface FormValueLogin{
 
 export default  function Login() {
 
-  const navigate = useNavigate()
+  
   const dispatch = useDispatch<AppDispatch>()
 
-  const {errorLogin, profile} = useSelector( (s:RootState)=> s.user)
-
-  useEffect(()=> {
-    if (profile != null) navigate('/private/menu/chat')
-  }, [profile])
+  const {errorLogin} = useSelector( (s:RootState)=> s.user)
 
   const authLoginPassword = async (e:FormEvent) =>{
         e.preventDefault()

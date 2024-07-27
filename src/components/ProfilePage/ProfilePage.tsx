@@ -12,6 +12,7 @@ import InfoUserPage from '../InfoUserProfile/InfoUserProfile';
 import { TypePeople } from '../../helper/interface';
 import { loadingPeoples } from '../../helper/ScriptFirebase';
 import WriteMessage from '../WriteMessage/WriteMessage';
+import StatusFriend from '../StatusFriend/StatusFriend';
 
 const INITIAL_STATUS_POSTS = {
     loadingPosts: false,
@@ -82,7 +83,10 @@ export default function ProfilePage(props:ProfilePageProps){
 
                 <div className={styles['user']}>
                     {dataUser && <InfoUserPage {...dataUser}/>}
-                    <WriteMessage uid={props.uid} displayName={dataUser?.displayName as string} photoUrl={dataUser?.photoURL as string} />
+                    <div className={styles['actions']}>
+                           <WriteMessage path={'people'} uid={props.uid} displayName={dataUser?.displayName as string} photoUrl={dataUser?.photoURL as string} />
+                           <StatusFriend />
+                    </div>
                     {statusPosts.loadingPosts && <div>Загрузка постов</div>}
                     {statusPosts.loadingPostsError && <div>Произошла ошибка: {statusPosts.loadingPostsError}</div>}
                     {dataPost?.posts && <PostList dataPost={dataPost}/>}

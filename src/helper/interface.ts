@@ -57,6 +57,7 @@ export interface TypeCorrespondenceCard{
     lastMessage: string;
     quantityMessage: number;
     isReadValid: boolean;
+    sendUserMessage?: string;
     uidUser: string;
     date: string;
     time: string;

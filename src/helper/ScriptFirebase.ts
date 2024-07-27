@@ -44,10 +44,7 @@ export const updateUserFireStore = async(data: UserInfo, status: boolean) => {
   
 }
 
-//загрузка всех людей или одного человека
-
-
-
+//загрузка всех пользователей или одного пользователя или определенный пользователей
 export const loadingPeoples = async (uid?:string, arrUid?:string[],arrOptions?:string[]) => {
 
     // если нужны определенные пользователи
@@ -111,7 +108,6 @@ export const loadingPeoples = async (uid?:string, arrUid?:string[],arrOptions?:s
 }
 
 //функция для изменения статуса сети пользователя: онлайн или не онлайн
-
 export const sendStatusVisibilityStateUser = async () => {
 
     const date = new Date()
@@ -161,7 +157,6 @@ export const sendStatusVisibilityStateUser = async () => {
 
 
 //получить свежие данные пользователя, к примеру  для занесения обновлений в базу данных о пользователях
-
 export const getUserData = () => {
     const user = auth.currentUser
 
@@ -179,7 +174,6 @@ export const getUserData = () => {
 
 
 //отправка сообщения 
-
 export const sendMessage = async (uidCompound: string, textNewMessage: string, firstMessageValid: boolean) => {
 
     const uidAuth = auth.currentUser?.uid
@@ -233,8 +227,6 @@ export const sendMessage = async (uidCompound: string, textNewMessage: string, f
 
 
 //отправка последнего собщения, чтоюбы у участников отображалась карточка переписки в кратком формате
-
-
 const getCorrespondenceCards = async (uid: string, firstCard: TypeCorrespondenceList, otherCard: TypeCorrespondenceCard, correspondenceId?: string) => {
     
     const correspondenceCards = await getDoc(doc(db, "correspondenceCard", uid + ""));
@@ -249,8 +241,6 @@ const getCorrespondenceCards = async (uid: string, firstCard: TypeCorrespondence
             return
         }
 
-
-
         if( auth.currentUser?.uid != uid){
 
             let cardUserData: any
@@ -263,8 +253,6 @@ const getCorrespondenceCards = async (uid: string, firstCard: TypeCorrespondence
         correspondenceCardsData = [otherCard, ...deleteCorrespondenceCard]
 
         updateDoc(doc(db, "correspondenceCard", uid + ""), {correspondenceCards: correspondenceCardsData});
-
-
 
     } else {
         setDoc(doc(db, "correspondenceCard", uid + ""), firstCard);
@@ -299,6 +287,7 @@ export const sendCorrespondenceCards = async (correspondenceId: string, lastMess
         uidUser: uidCompanion,
         lastMessage,
         isReadValid: false,
+        sendUserMessage: uidAuth,
         quantityMessage: 1,
         date: date.toLocaleString("ru-RU", optionsDate),
         time: date.toLocaleString("ru-RU", optionsTime),
@@ -315,6 +304,7 @@ export const sendCorrespondenceCards = async (correspondenceId: string, lastMess
         uidUser: uidAuth,
         lastMessage,
         isReadValid: true,
+        sendUserMessage: uidAuth,
         quantityMessage: 1,
         date: date.toLocaleString("ru-RU", optionsDate),
         time: date.toLocaleString("ru-RU", optionsTime),
@@ -328,4 +318,29 @@ export const sendCorrespondenceCards = async (correspondenceId: string, lastMess
 
     getCorrespondenceCards(uidCompanion,firstCardcompanionUser,companionUser, correspondenceId)
 
+}
+
+//при открывании переписки с другим пользователем, отправлять данные, что сообщения прочитаны
+
+export const sendMessageRead = async (authUid:string, correspondenceId:string) => {
+    
+    const correspondenceCards = await getDoc(doc(db, "correspondenceCard", authUid + ""));
+
+    if(correspondenceCards.exists()){
+        
+        let correspondenceCardsData = correspondenceCards.data().correspondenceCards as TypeCorrespondenceCard[]
+        const indexCard = correspondenceCardsData.findIndex( (el) => el.correspondenceId === correspondenceId)
+
+        if(indexCard === -1) return
+        
+        let userCards = correspondenceCardsData[indexCard]
+
+        userCards.isReadValid = false
+        userCards.quantityMessage = 0
+
+        correspondenceCardsData[indexCard] = userCards
+
+        updateDoc(doc(db, "correspondenceCard", authUid + ""), {correspondenceCards: correspondenceCardsData});
+
+    }
 }

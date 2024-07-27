@@ -10,3 +10,9 @@
     width: 100%;
     margin: 0 auto;
 }
+
+.actions{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
